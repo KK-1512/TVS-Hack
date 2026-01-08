@@ -18,7 +18,7 @@ st.set_page_config(
 # -----------------------------------
 # App Title & Description
 # -----------------------------------
-st.title("Intelligent Road Usage Profiling for Two-Wheelers")
+st.title("RideX")
 
 st.write(
     """
