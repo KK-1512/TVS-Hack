@@ -28,6 +28,17 @@ st.write(
     The model interprets how the **vehicle reacts to the road**, rather than measuring the road directly.
     """
 )
+# -----------------------------------
+# Display Road Type Illustration
+# -----------------------------------
+st.image(
+    "TVS_Hack.png",
+    caption="Representative road usage conditions: Highway, Urban, Rural, Broken Road, Off-road, Hill",
+    use_container_width=True
+)
+
+st.markdown("---")
+
 
 st.markdown("---")
 
