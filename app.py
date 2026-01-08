@@ -12,14 +12,13 @@ model = joblib.load("random_forest_road_usage_model.pkl")
 # -----------------------------------
 st.set_page_config(
     page_title="Intelligent Road Usage Profiling",
-    page_icon="🏍️",
     layout="centered"
 )
 
 # -----------------------------------
 # App Title & Description
 # -----------------------------------
-st.title("🏍️ Intelligent Road Usage Profiling for Two-Wheelers")
+st.title("Intelligent Road Usage Profiling for Two-Wheelers")
 
 st.write(
     """
@@ -98,7 +97,7 @@ rlsi = st.slider(
 # -----------------------------------
 st.markdown("---")
 
-if st.button("🚦 Predict Road Usage"):
+if st.button("Predict Road Usage"):
     input_data = np.array([[ 
         rms_acc,
         kurtosis,
@@ -111,7 +110,7 @@ if st.button("🚦 Predict Road Usage"):
 
     prediction = model.predict(input_data)[0]
 
-    st.success(f"🛣️ **Predicted Road Type:** {prediction}")
+    st.success(f"**Predicted Road Type:** {prediction}")
 
     st.info(
         "Prediction is based on vehicle vibration severity, shock content, "
