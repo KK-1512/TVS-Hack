@@ -116,11 +116,6 @@ if st.button("Predict Road Usage"):
 
     st.success(f"**Predicted Road Type:** {prediction}")
 
-    st.info(
-        "Prediction is based on vehicle vibration severity, shock content, "
-        "speed behavior, and load severity patterns."
-    )
-
 # -----------------------------------
 # Footer
 # -----------------------------------
