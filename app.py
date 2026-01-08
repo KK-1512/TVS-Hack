@@ -33,12 +33,7 @@ st.write(
 # -----------------------------------
 st.image(
     "TVS_Hack.png",
-    caption="Representative road usage conditions: Highway, Urban, Rural, Broken Road, Off-road, Hill",
-    use_container_width=True
 )
-
-st.markdown("---")
-
 
 st.markdown("---")
 
