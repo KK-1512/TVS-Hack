@@ -18,7 +18,7 @@ st.set_page_config(
 # -----------------------------------
 # App Title & Description
 # -----------------------------------
-st.title("RideX")
+st.title("**RideX**")
 
 st.write(
     """
@@ -40,7 +40,7 @@ st.markdown("---")
 # -----------------------------------
 # Input Section
 # -----------------------------------
-st.header("Enter Vehicle Response Parameters")
+st.header("Vehicle Response Parameters")
 st.info(
         "Prediction is based on vehicle vibration severity, shock content, "
         "speed behavior, and load severity patterns."
