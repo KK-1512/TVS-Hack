@@ -126,6 +126,22 @@ if st.button("Predict Road Usage"):
 # Footer
 # -----------------------------------
 st.markdown("---")
+# -----------------------------------
+# Team Members Section
+# -----------------------------------
+st.markdown("Team Members")
+
+st.markdown(
+    """
+    **RideSense AI – Intelligent Road Usage Profiling**
+    
+    - **Krish** – Vehicle Dynamics & ML Modeling  
+    - **Team Member 2** – Data Processing & Feature Engineering  
+    - **Team Member 3** – Web App Development & Deployment  
+    - **Team Member 4** – Validation & Documentation  
+    """
+)
+
 st.caption(
     "College of Engineering, Guindy | Intelligent Vehicle Response-Based Road Profiling System"
 )
