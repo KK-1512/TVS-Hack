@@ -85,30 +85,6 @@ st.image(
     use_container_width=True
 )
 
-st.markdown("---")
-from datetime import datetime
-import pytz
-import time
-
-# Placeholder for live time
-time_placeholder = st.empty()
-
-# Indian Time Zone
-ist = pytz.timezone('Asia/Kolkata')
-
-# Live update loop
-while True:
-    now = datetime.now(ist)
-    
-    current_time = now.strftime("%d %B %Y | %I:%M:%S %p")
-    
-    time_placeholder.markdown(
-        f"<h4 style='text-align:center; color:#00bfff;'>{current_time}</h4>",
-        unsafe_allow_html=True
-    )
-    
-    time.sleep(1)
-
 # -----------------------------------
 # Input Section (SAME AS OLD, BUT TYPING INPUT)
 # -----------------------------------
