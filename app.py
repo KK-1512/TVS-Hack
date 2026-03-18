@@ -1,14 +1,18 @@
 import streamlit as st
 import numpy as np
 import joblib
+import base64
+from datetime import datetime
+import pytz
+from streamlit_autorefresh import st_autorefresh
 
 # -----------------------------------
-# Load trained Random Forest model
+# Load trained model
 # -----------------------------------
 model = joblib.load("random_forest_road_usage_model.pkl")
 
 # -----------------------------------
-# Streamlit Page Configuration
+# Page Config
 # -----------------------------------
 st.set_page_config(
     page_title="Intelligent Road Usage Profiling",
@@ -16,56 +20,71 @@ st.set_page_config(
 )
 
 # -----------------------------------
-# App Title & Description
+# Helper: Convert image to base64
+# -----------------------------------
+def get_base64(img_path):
+    with open(img_path, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+# -----------------------------------
+# HEADER (CEG | RideX | TVS)
 # -----------------------------------
 st.markdown("""
 <style>
 .header {
     display: flex;
     align-items: center;
-    justify-content: space-between;  /* push logos to ends */
+    justify-content: space-between;
     width: 100%;
+    position: relative;
     margin-top: 10px;
 }
 
-/* Logos */
 .logo {
     height: 70px;
 }
 
-/* Center container */
 .title-container {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
 
-/* RideX */
 .title {
     font-size: 55px;
     font-weight: 800;
     color: #ff1a1a;
     margin: 0;
 }
+
+.description {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #e6e6e6;
+}
+
+.highlight {
+    font-weight: 600;
+    color: #ffffff;
+}
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("""
+st.markdown(f"""
 <div class="header">
-    <img src="data:image/png;base64,{}" class="logo">
+    <img src="data:image/png;base64,{get_base64('ceg.png')}" class="logo">
     
     <div class="title-container">
         <div class="title">RideX</div>
     </div>
 
-    <img src="data:image/png;base64,{}" class="logo">
+    <img src="data:image/png;base64,{get_base64('tvsbn.jpg')}" class="logo">
 </div>
-""".format(
-    open("ceg.png", "rb").read().encode("base64").decode(),
-    open("tvsbn.jpg", "rb").read().encode("base64").decode()
-), unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
-# Description
+# -----------------------------------
+# DESCRIPTION
+# -----------------------------------
 st.markdown("""
 <div class="description">
 This application predicts <span class="highlight">road usage type</span> using vehicle dynamic response features 
@@ -76,15 +95,27 @@ The model interprets how <span class="highlight">the vehicle reacts to the road<
 """, unsafe_allow_html=True)
 
 # -----------------------------------
-# Display Road Type Illustration
+# LIVE INDIAN TIME (SAFE)
 # -----------------------------------
-st.image(
-    "TVS_Hack.png",
-    use_container_width=True
+st_autorefresh(interval=1000, key="time_refresh")
+
+ist = pytz.timezone('Asia/Kolkata')
+now = datetime.now(ist)
+
+current_time = now.strftime("%d %B %Y | %I:%M:%S %p")
+
+st.markdown(
+    f"<h4 style='text-align:center; color:#00bfff;'>{current_time}</h4>",
+    unsafe_allow_html=True
 )
 
 # -----------------------------------
-# Input Section (SAME AS OLD, BUT TYPING INPUT)
+# IMAGE
+# -----------------------------------
+st.image("TVS_Hack.png", use_container_width=True)
+
+# -----------------------------------
+# INPUT SECTION
 # -----------------------------------
 st.header("Vehicle Response Parameters")
 st.info(
@@ -92,64 +123,16 @@ st.info(
     "speed behavior, and load severity patterns."
 )
 
-rms_acc = st.number_input(
-    "RMS Vertical Acceleration (m/s²)",
-    min_value=0.2,
-    max_value=3.5,
-    value=1.0,
-    step=0.1
-)
-
-kurtosis = st.number_input(
-    "Kurtosis (Shock Dominance)",
-    min_value=2.0,
-    max_value=15.0,
-    value=5.0,
-    step=0.1
-)
-
-shock_density = st.number_input(
-    "Shock Density (events per km)",
-    min_value=0,
-    max_value=30,
-    value=5,
-    step=1
-)
-
-psd_low = st.number_input(
-    "Low-Frequency PSD Energy",
-    min_value=0.1,
-    max_value=6.0,
-    value=1.0,
-    step=0.1
-)
-
-psd_high = st.number_input(
-    "High-Frequency PSD Energy",
-    min_value=0.1,
-    max_value=6.0,
-    value=1.0,
-    step=0.1
-)
-
-avg_speed = st.number_input(
-    "Average Vehicle Speed (km/h)",
-    min_value=5.0,
-    max_value=100.0,
-    value=40.0,
-    step=1.0
-)
-
-rlsi = st.number_input(
-    "Road Load Severity Index (RLSI)",
-    min_value=0.2,
-    max_value=12.0,
-    value=3.0,
-    step=0.1
-)
+rms_acc = st.number_input("RMS Vertical Acceleration (m/s²)", 0.2, 3.5, 1.0, 0.1)
+kurtosis = st.number_input("Kurtosis (Shock Dominance)", 2.0, 15.0, 5.0, 0.1)
+shock_density = st.number_input("Shock Density (events per km)", 0, 30, 5, 1)
+psd_low = st.number_input("Low-Frequency PSD Energy", 0.1, 6.0, 1.0, 0.1)
+psd_high = st.number_input("High-Frequency PSD Energy", 0.1, 6.0, 1.0, 0.1)
+avg_speed = st.number_input("Average Vehicle Speed (km/h)", 5.0, 100.0, 40.0, 1.0)
+rlsi = st.number_input("Road Load Severity Index (RLSI)", 0.2, 12.0, 3.0, 0.1)
 
 # -----------------------------------
-# Prediction Button
+# PREDICTION
 # -----------------------------------
 st.markdown("---")
 
@@ -169,43 +152,15 @@ if st.button("Predict Road Usage"):
     st.success(f"**Predicted Road Type:** {prediction}")
 
 # -----------------------------------
-# Footer
+# FOOTER
 # -----------------------------------
 st.markdown("---")
 
 st.markdown("**Team Members**")
+st.markdown("""
+- **Hasitha S**  
+- **Kowshic K T**  
+- **Krishnakumar V**
+""")
 
-st.markdown(
-    """
-    - **Hasitha S** 
-    - **Kowshic K T**
-    - **Krishnakumar V**
-    """
-)
-
-st.caption(
-    "College of Engineering, Guindy | Intelligent Vehicle Response-Based Road Profiling System"
-)
-st.markdown("")
-from datetime import datetime
-import pytz
-import time
-
-# Placeholder for live time
-time_placeholder = st.empty()
-
-# Indian Time Zone
-ist = pytz.timezone('Asia/Kolkata')
-
-# Live update loop
-while True:
-    now = datetime.now(ist)
-    
-    current_time = now.strftime("%d %B %Y | %I:%M:%S %p")
-    
-    time_placeholder.markdown(
-        f"<h4 style='text-align:center; color:#00bfff;'>{current_time}</h4>",
-        unsafe_allow_html=True
-    )
-    
-    time.sleep(1)
+st.caption("College of Engineering, Guindy | Intelligent Vehicle Response-Based Road Profiling")
