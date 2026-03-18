@@ -45,19 +45,19 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns([1,2,1])
+col1, col2, col3 = st.columns([1.2, 2, 1.2])
 
 with col1:
-    st.image("ceg.png", width=80)
+    st.image("ceg.png", width=90)
 
 with col2:
     st.markdown(
-        "<h1 style='text-align:center; color:red;'>RideX</h1>",
+        "<h1 style='text-align:center; color:#ff1a1a; margin-top:10px;'>RideX</h1>",
         unsafe_allow_html=True
     )
 
 with col3:
-    st.image("tvs.jpg", width=80)
+    st.image("tvs.png", width=90)
 
 # Description
 st.markdown("""
