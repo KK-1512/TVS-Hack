@@ -4,7 +4,7 @@ import joblib
 import base64
 from datetime import datetime
 import pytz
-from streamlit_autorefresh import st_autorefresh
+
 
 # -----------------------------------
 # Load trained model
@@ -105,17 +105,6 @@ The model interprets how <span class="highlight">the vehicle reacts to the road<
 # -----------------------------------
 # LIVE TIME (IST)
 # -----------------------------------
-st_autorefresh(interval=1000, key="clock_refresh")
-
-ist = pytz.timezone('Asia/Kolkata')
-now = datetime.now(ist)
-
-current_time = now.strftime("%d %B %Y | %I:%M:%S %p")
-
-st.markdown(
-    f"<h4 style='text-align:center; color:#00bfff;'>{current_time}</h4>",
-    unsafe_allow_html=True
-)
 
 # -----------------------------------
 # IMAGE
