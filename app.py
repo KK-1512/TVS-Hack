@@ -18,7 +18,26 @@ st.set_page_config(
 # -----------------------------------
 # App Title & Description
 # -----------------------------------
-st.title("**RideX**")
+st.markdown("""
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap');
+
+    .ridex-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 60px;
+        font-weight: 900;
+        text-align: center;
+        color: #00bfff;
+        text-shadow: 
+            0 0 10px #00bfff,
+            0 0 20px #0077ff,
+            0 0 40px #0077ff;
+        margin-bottom: 10px;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+st.markdown('<div class="ridex-title">RideX</div>', unsafe_allow_html=True)
 
 st.write(
     """
