@@ -20,52 +20,50 @@ st.set_page_config(
 # -----------------------------------
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap');
-
-.header-container {
+.header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
+    justify-content: space-between;  /* push logos to ends */
+    width: 100%;
+    margin-top: 10px;
 }
 
 /* Logos */
 .logo {
-    height: 60px;
+    height: 70px;
 }
 
-/* RideX Title */
-.ridex-title {
-    font-family: 'Orbitron', sans-serif;
+/* Center container */
+.title-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* RideX */
+.title {
     font-size: 55px;
-    font-weight: 900;
+    font-weight: 800;
     color: #ff1a1a;
+    margin: 0;
 }
 </style>
 """, unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns([1, 2, 1])
+st.markdown("""
+<div class="header">
+    <img src="data:image/png;base64,{}" class="logo">
+    
+    <div class="title-container">
+        <div class="title">RideX</div>
+    </div>
 
-with col1:
-    st.markdown("<div style='display:flex; justify-content:center; align-items:center; height:100%;'>", unsafe_allow_html=True)
-    st.image("ceg.png", width=80)
-    st.markdown("</div>", unsafe_allow_html=True)
-
-with col2:
-    st.markdown(
-        """
-        <div style='display:flex; justify-content:center; align-items:center; height:100%;'>
-            <h1 style='color:#ff1a1a; margin:0;'>RideX</h1>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-with col3:
-    st.markdown("<div style='display:flex; justify-content:center; align-items:center; height:100%;'>", unsafe_allow_html=True)
-    st.image("tvsbn.jpg", width=80)
-    st.markdown("</div>", unsafe_allow_html=True)
+    <img src="data:image/png;base64,{}" class="logo">
+</div>
+""".format(
+    open("college_logo.png", "rb").read().encode("base64").decode(),
+    open("tvs_logo.png", "rb").read().encode("base64").decode()
+), unsafe_allow_html=True)
 
 # Description
 st.markdown("""
