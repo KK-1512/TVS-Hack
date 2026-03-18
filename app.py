@@ -48,7 +48,7 @@ st.markdown("""
 col1, col2, col3 = st.columns([1,2,1])
 
 with col1:
-    st.image("college_logo.png", width=80)
+    st.image("ceg.png", width=80)
 
 with col2:
     st.markdown(
@@ -57,7 +57,7 @@ with col2:
     )
 
 with col3:
-    st.image("tvs_logo.png", width=80)
+    st.image("tvs.png", width=80)
 
 # Description
 st.markdown("""
