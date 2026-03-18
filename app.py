@@ -24,21 +24,41 @@ st.markdown("""
 
     .ridex-title {
         font-family: 'Orbitron', sans-serif;
-        font-size: 60px;
+        font-size: 65px;
         font-weight: 900;
         text-align: center;
-        color: #00bfff;
-        text-shadow: 
-            0 0 10px #00bfff,
-            0 0 20px #0077ff,
-            0 0 40px #0077ff;
+        color: #ff1a1a;
+
+        /* Glow + glitter effect */
+        text-shadow:
+            0 0 5px #ff1a1a,
+            0 0 10px #ff0000,
+            0 0 20px #ff0000,
+            0 0 40px #ff3333,
+            0 0 80px #ff4d4d;
+
+        animation: glow 1.5s infinite alternate;
         margin-bottom: 10px;
+    }
+
+    @keyframes glow {
+        from {
+            text-shadow:
+                0 0 5px #ff1a1a,
+                0 0 10px #ff0000,
+                0 0 20px #ff0000;
+        }
+        to {
+            text-shadow:
+                0 0 20px #ff3333,
+                0 0 40px #ff0000,
+                0 0 80px #ff4d4d;
+        }
     }
     </style>
 """, unsafe_allow_html=True)
 
 st.markdown('<div class="ridex-title">RideX</div>', unsafe_allow_html=True)
-
 st.write(
     """
     This application predicts **road usage type** using vehicle dynamic response features 
