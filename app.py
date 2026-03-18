@@ -47,9 +47,9 @@ st.markdown("""
 
 st.markdown("""
 <div class="header-container">
-    <img src="college_logo.png" class="logo">
+    <img src="ceg.png" class="logo">
     <div class="ridex-title">RideX</div>
-    <img src="tvs_logo.png" class="logo">
+    <img src="tvs.jpg" class="logo">
 </div>
 """, unsafe_allow_html=True)
 
