@@ -57,7 +57,7 @@ with col2:
     )
 
 with col3:
-    st.image("tvs.png", width=80)
+    st.image("tvs.png", width=100)
 
 # Description
 st.markdown("""
