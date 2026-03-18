@@ -20,36 +20,38 @@ st.set_page_config(
 # -----------------------------------
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap');
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Logos */
+.logo {
+    height: 60px;
+}
 
 /* RideX Title */
 .ridex-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 65px;
+    font-size: 55px;
     font-weight: 900;
-    text-align: center;
-    color: #ff1a1a;   /* Solid red */
-    margin-bottom: 15px;
-}
-
-/* Description */
-.description {
-    font-family: 'Exo 2', sans-serif;
-    font-size: 18px;
-    line-height: 1.7;
-    color: #e6e6e6;
-}
-
-/* Highlight words */
-.highlight {
-    font-weight: 600;
-    color: #ffffff;
+    color: #ff1a1a;
 }
 </style>
 """, unsafe_allow_html=True)
 
-# Title
-st.markdown('<div class="ridex-title">RideX</div>', unsafe_allow_html=True)
+st.markdown("""
+<div class="header-container">
+    <img src="college_logo.png" class="logo">
+    <div class="ridex-title">RideX</div>
+    <img src="tvs_logo.png" class="logo">
+</div>
+""", unsafe_allow_html=True)
 
 # Description
 st.markdown("""
