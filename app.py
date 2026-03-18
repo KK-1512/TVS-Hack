@@ -72,17 +72,19 @@ st.markdown("""
 # -----------------------------------
 # HEADER
 # -----------------------------------
-st.markdown(f"""
-<div class="header">
-    <img src="data:image/png;base64,{get_base64('ceg.png')}" class="logo">
-    
-    <div class="title-container">
-        <div class="title">RideX</div>
-    </div>
+col1, col2, col3 = st.columns([1,2,1])
 
-    <img src="data:image/png;base64,{get_base64('tvsbn.jpg')}" class="logo">
-</div>
-""", unsafe_allow_html=True)
+with col1:
+    st.image("ceg.png", width=90)
+
+with col2:
+    st.markdown(
+        "<h1 style='text-align:center; color:#ff1a1a; margin-top:10px;'>RideX</h1>",
+        unsafe_allow_html=True
+    )
+
+with col3:
+    st.image("tvsbn.jpg", width=90)
 
 # -----------------------------------
 # DESCRIPTION
