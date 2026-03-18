@@ -4,7 +4,6 @@ import joblib
 import base64
 from datetime import datetime
 import pytz
-from streamlit_autorefresh import st_autorefresh
 
 # -----------------------------------
 # Load trained model
@@ -27,7 +26,7 @@ def get_base64(img_path):
         return base64.b64encode(f.read()).decode()
 
 # -----------------------------------
-# HEADER (CEG | RideX | TVS)
+# CSS STYLING
 # -----------------------------------
 st.markdown("""
 <style>
@@ -70,6 +69,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# -----------------------------------
+# HEADER
+# -----------------------------------
 st.markdown(f"""
 <div class="header">
     <img src="data:image/png;base64,{get_base64('ceg.png')}" class="logo">
@@ -95,10 +97,8 @@ The model interprets how <span class="highlight">the vehicle reacts to the road<
 """, unsafe_allow_html=True)
 
 # -----------------------------------
-# LIVE INDIAN TIME (SAFE)
+# TIME (IST)
 # -----------------------------------
-st_autorefresh(interval=1000, key="time_refresh")
-
 ist = pytz.timezone('Asia/Kolkata')
 now = datetime.now(ist)
 
