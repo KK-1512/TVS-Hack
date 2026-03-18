@@ -45,19 +45,27 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns([1,2,1])
+col1, col2, col3 = st.columns([1, 2, 1])
 
 with col1:
-    st.image("ceg.png", width=80)
+    st.markdown("<div style='display:flex; justify-content:center; align-items:center; height:100%;'>", unsafe_allow_html=True)
+    st.image("college_logo.png", width=80)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 with col2:
     st.markdown(
-        "<h1 style='text-align:center; color:red;'>RideX</h1>",
+        """
+        <div style='display:flex; justify-content:center; align-items:center; height:100%;'>
+            <h1 style='color:#ff1a1a; margin:0;'>RideX</h1>
+        </div>
+        """,
         unsafe_allow_html=True
     )
 
 with col3:
-    st.image("tvs.png", width=100)
+    st.markdown("<div style='display:flex; justify-content:center; align-items:center; height:100%;'>", unsafe_allow_html=True)
+    st.image("tvs_logo.png", width=80)
+    st.markdown("</div>", unsafe_allow_html=True)
 
 # Description
 st.markdown("""
