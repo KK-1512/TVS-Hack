@@ -45,13 +45,19 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown("""
-<div class="header-container">
-    <img src="ceg.png" class="logo">
-    <div class="ridex-title">RideX</div>
-    <img src="tvs.jpg" class="logo">
-</div>
-""", unsafe_allow_html=True)
+col1, col2, col3 = st.columns([1,2,1])
+
+with col1:
+    st.image("college_logo.png", width=80)
+
+with col2:
+    st.markdown(
+        "<h1 style='text-align:center; color:red;'>RideX</h1>",
+        unsafe_allow_html=True
+    )
+
+with col3:
+    st.image("tvs_logo.png", width=80)
 
 # Description
 st.markdown("""
