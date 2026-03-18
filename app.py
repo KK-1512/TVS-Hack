@@ -61,8 +61,8 @@ st.markdown("""
     <img src="data:image/png;base64,{}" class="logo">
 </div>
 """.format(
-    open("college_logo.png", "rb").read().encode("base64").decode(),
-    open("tvs_logo.png", "rb").read().encode("base64").decode()
+    open("ceg.png", "rb").read().encode("base64").decode(),
+    open("tvsbn.png", "rb").read().encode("base64").decode()
 ), unsafe_allow_html=True)
 
 # -----------------------------------
