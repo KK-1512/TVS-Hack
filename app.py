@@ -52,7 +52,7 @@ with col1:
 
 with col2:
     st.markdown(
-        "<h1 style='text-align:center; color:red;'>RideX</h1>",
+        "<h1 style='text-align:center; color:red;'>Nivetha Mass</h1>",
         unsafe_allow_html=True
     )
 
