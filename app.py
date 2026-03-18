@@ -25,34 +25,25 @@ st.markdown("""
 /* RideX Title */
 .ridex-title {
     font-family: 'Orbitron', sans-serif;
-    font-size: 70px;
+    font-size: 65px;
     font-weight: 900;
     text-align: center;
-    color: #ff1a1a;
-
-    text-shadow:
-        0 0 10px #ff1a1a,
-        0 0 20px #ff0000,
-        0 0 40px #ff0000,
-        0 0 80px #ff3333;
-
-    margin-bottom: 20px;
+    color: #ff1a1a;   /* Solid red */
+    margin-bottom: 15px;
 }
 
-/* Description Styling */
+/* Description */
 .description {
     font-family: 'Exo 2', sans-serif;
-    font-size: 19px;
-    line-height: 1.8;
+    font-size: 18px;
+    line-height: 1.7;
     color: #e6e6e6;
-    text-align: left;
-    margin-top: 10px;
 }
 
 /* Highlight words */
 .highlight {
-    color: #ffffff;
     font-weight: 600;
+    color: #ffffff;
 }
 </style>
 """, unsafe_allow_html=True)
