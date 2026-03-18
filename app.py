@@ -49,7 +49,7 @@ col1, col2, col3 = st.columns([1, 2, 1])
 
 with col1:
     st.markdown("<div style='display:flex; justify-content:center; align-items:center; height:100%;'>", unsafe_allow_html=True)
-    st.image("college_logo.png", width=80)
+    st.image("ceg.png", width=80)
     st.markdown("</div>", unsafe_allow_html=True)
 
 with col2:
@@ -64,7 +64,7 @@ with col2:
 
 with col3:
     st.markdown("<div style='display:flex; justify-content:center; align-items:center; height:100%;'>", unsafe_allow_html=True)
-    st.image("tvs_logo.png", width=80)
+    st.image("tvs.png", width=80)
     st.markdown("</div>", unsafe_allow_html=True)
 
 # Description
