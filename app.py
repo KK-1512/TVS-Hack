@@ -18,71 +18,52 @@ st.set_page_config(
     layout="centered"
 )
 
-# -----------------------------------
-# Helper: Convert image to base64
-# -----------------------------------
-def get_base64(img_path):
-    with open(img_path, "rb") as f:
-        return base64.b64encode(f.read()).decode()
-
-# -----------------------------------
-# CSS STYLING
-# -----------------------------------
 st.markdown("""
 <style>
 .header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between;  /* push logos to ends */
     width: 100%;
-    position: relative;
     margin-top: 10px;
 }
 
+/* Logos */
 .logo {
     height: 70px;
 }
 
+/* Center container */
 .title-container {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
 }
 
+/* RideX */
 .title {
     font-size: 55px;
     font-weight: 800;
     color: #ff1a1a;
     margin: 0;
 }
-
-.description {
-    font-size: 18px;
-    line-height: 1.7;
-    color: #e6e6e6;
-}
-
-.highlight {
-    font-weight: 600;
-    color: #ffffff;
-}
 </style>
 """, unsafe_allow_html=True)
 
-# -----------------------------------
-# HEADER
-# -----------------------------------
-st.markdown(f"""
+st.markdown("""
 <div class="header">
-    <img src="data:image/png;base64,{get_base64('ceg.png')}" class="logo">
+    <img src="data:image/png;base64,{}" class="logo">
     
     <div class="title-container">
         <div class="title">RideX</div>
     </div>
 
-    <img src="data:image/png;base64,{get_base64('tvsbn.jpg')}" class="logo">
+    <img src="data:image/png;base64,{}" class="logo">
 </div>
-""", unsafe_allow_html=True)
+""".format(
+    open("college_logo.png", "rb").read().encode("base64").decode(),
+    open("tvs_logo.png", "rb").read().encode("base64").decode()
+), unsafe_allow_html=True)
 
 # -----------------------------------
 # DESCRIPTION
