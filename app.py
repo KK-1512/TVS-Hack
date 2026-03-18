@@ -19,54 +19,56 @@ st.set_page_config(
 # App Title & Description
 # -----------------------------------
 st.markdown("""
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap');
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Exo+2:wght@400;600&display=swap');
 
-    .ridex-title {
-        font-family: 'Orbitron', sans-serif;
-        font-size: 65px;
-        font-weight: 900;
-        text-align: center;
-        color: #ff1a1a;
+/* RideX Title */
+.ridex-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 70px;
+    font-weight: 900;
+    text-align: center;
+    color: #ff1a1a;
 
-        /* Glow + glitter effect */
-        text-shadow:
-            0 0 5px #ff1a1a,
-            0 0 10px #ff0000,
-            0 0 20px #ff0000,
-            0 0 40px #ff3333,
-            0 0 80px #ff4d4d;
+    text-shadow:
+        0 0 10px #ff1a1a,
+        0 0 20px #ff0000,
+        0 0 40px #ff0000,
+        0 0 80px #ff3333;
 
-        animation: glow 1.5s infinite alternate;
-        margin-bottom: 10px;
-    }
+    margin-bottom: 20px;
+}
 
-    @keyframes glow {
-        from {
-            text-shadow:
-                0 0 5px #ff1a1a,
-                0 0 10px #ff0000,
-                0 0 20px #ff0000;
-        }
-        to {
-            text-shadow:
-                0 0 20px #ff3333,
-                0 0 40px #ff0000,
-                0 0 80px #ff4d4d;
-        }
-    }
-    </style>
+/* Description Styling */
+.description {
+    font-family: 'Exo 2', sans-serif;
+    font-size: 19px;
+    line-height: 1.8;
+    color: #e6e6e6;
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* Highlight words */
+.highlight {
+    color: #ffffff;
+    font-weight: 600;
+}
+</style>
 """, unsafe_allow_html=True)
 
+# Title
 st.markdown('<div class="ridex-title">RideX</div>', unsafe_allow_html=True)
-st.write(
-    """
-    This application predicts **road usage type** using vehicle dynamic response features 
-    derived from **CAN data and minimal sensors (IMU)**.
-    
-    The model interprets how the **vehicle reacts to the road**, rather than measuring the road directly.
-    """
-)
+
+# Description
+st.markdown("""
+<div class="description">
+This application predicts <span class="highlight">road usage type</span> using vehicle dynamic response features 
+derived from <span class="highlight">CAN data and minimal sensors (IMU)</span>.<br><br>
+
+The model interprets how <span class="highlight">the vehicle reacts to the road</span>, rather than measuring the road directly.
+</div>
+""", unsafe_allow_html=True)
 
 # -----------------------------------
 # Display Road Type Illustration
