@@ -64,7 +64,7 @@ with col2:
 
 with col3:
     st.markdown("<div style='display:flex; justify-content:center; align-items:center; height:100%;'>", unsafe_allow_html=True)
-    st.image("tvsb.jpeg", width=80)
+    st.image("tvsbn.jpg", width=80)
     st.markdown("</div>", unsafe_allow_html=True)
 
 # Description
